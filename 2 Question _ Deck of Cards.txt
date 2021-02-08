@@ -1,0 +1,25 @@
+class Carddeck {     
+    createDeck() {
+       	const cards = []; 
+        let designs = ['clubs', 'diamonds', 'hearts', 'spades'];
+        let names = ['ace', '2', '3', '4', '5', '6', '7', '8', '9','10', 'jack', 'queen', 'king'];
+        for (let i = 0; i < designs.length; i++) {
+            for (let j = 0; j < names.length; j++) {
+    		const design = designs[i];
+                const name = names[j];
+                cards.push({ design, name });
+            }
+        }
+        return cards;
+   }
+   pickCard(cards) {
+       	const random = Math.floor(Math.random() * cards.length);  
+	const cardDesign = cards[random].design;
+	const cardName = cards[random].name;
+       	console.log(cardDesign, cardName);
+   }
+}
+
+let cd = new Carddeck();
+const cards = cd.createDeck();
+cd.pickCard(cards);
