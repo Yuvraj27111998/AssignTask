@@ -1,0 +1,42 @@
+<div class="header">
+    <h1 class="project_name">Restaurant Managment System</h1>
+    <p class="project_component">Table Booking</p>
+</div>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="check">
+        <label for="location">Location</label>
+        <input formControlName="location" id="location" />
+
+        <label for="sits">No of Sits</label>
+        <input formControlName="sits" id="sits" type="number" />
+        
+        <label for="date">Date</label>
+        <input formControlName="date" id="date" type="date" />
+        
+        <label for="time">Time</label>
+        <input formControlName="time" matInput placeholder="time" type="time" />
+        <br>
+        <button (click)="buttonClicked = 'checkEligibility'">Check Eligibility</button>
+        <button (click)="buttonClicked = 'reserveTable'">Reserve Table</button>
+        </div>
+    </form>
+</div>
+<div class= "section">
+    <table>
+        <thead>
+            <tr>
+                <th>Table Shape</th>
+                <th>No Of Sits</th>
+                <th>Available Tables</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of firstFloor">
+                <td>{{item.name}}</td>
+                <td>{{item.chair}}</td>
+                <td>{{item.tableCount}}</td>
+            </tr>
+        </tbody>
+    </table>   
+</div>
